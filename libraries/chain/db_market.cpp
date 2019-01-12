@@ -404,7 +404,6 @@ bool database::apply_order(const limit_order_object& new_order_object, bool allo
    // Question: will a new limit order trigger a black swan event?
    //
    // 1. as of writing, it's possible due to the call-order-and-limit-order overlapping issue:
-   //       https://github.com/bitshares/bitshares-core/issues/606 .
    //    when it happens, a call order can be very big but don't match with the opposite,
    //    even when price feed is too far away, further than swan price,
    //    if the new limit order is in the same direction with the call orders, it can eat up all the opposite,
@@ -987,7 +986,7 @@ bool database::check_call_orders( const asset_object& mia, bool enable_black_swa
        price match_price  = limit_order.sell_price;
        // There was a check `match_price.validate();` here, which is removed now because it always passes
 
-       // Old rule: margin calls can only buy high https://github.com/bitshares/bitshares-core/issues/606
+       // Old rule: margin calls can only buy high 
        if( before_core_hardfork_606 && match_price > ~call_order.call_price )
           return margin_called;
 

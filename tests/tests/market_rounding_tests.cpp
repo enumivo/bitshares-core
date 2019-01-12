@@ -38,7 +38,6 @@ BOOST_FIXTURE_TEST_SUITE(market_rounding_tests, database_fixture)
 /**
  *  Create an order such that when the trade executes at the
  *  requested price the resulting payout to one party is 0
- *  ( Reproduces https://github.com/bitshares/bitshares-core/issues/184 )
  */
 BOOST_AUTO_TEST_CASE( trade_amount_equals_zero )
 {
@@ -92,7 +91,7 @@ BOOST_AUTO_TEST_CASE( trade_amount_equals_zero )
 }
 
 /**
- *  The something-for-nothing bug should be fixed https://github.com/bitshares/bitshares-core/issues/184
+ *  The something-for-nothing bug should be fixed 
  */
 BOOST_AUTO_TEST_CASE( trade_amount_equals_zero_after_hf_184 )
 {
@@ -144,7 +143,6 @@ BOOST_AUTO_TEST_CASE( trade_amount_equals_zero_after_hf_184 )
 }
 
 /***
- * This test case reproduces one of the scenarios described in bitshares-core issue #342:
  *   when matching a limit order with another limit order, a small taker order will pay more than minimum required.
  */
 BOOST_AUTO_TEST_CASE( limit_limit_rounding_test1 )
@@ -207,7 +205,6 @@ BOOST_AUTO_TEST_CASE( limit_limit_rounding_test1 )
 }
 
 /***
- * This test case tests one of the scenarios described in bitshares-core issue #342 after hard fork:
  *   when matching a limit order with another limit order,
  *   a small taker order will only pay minimum required amount, and the rest will be returned.
  */
@@ -273,7 +270,6 @@ BOOST_AUTO_TEST_CASE( limit_limit_rounding_test1_after_hf_342 )
 }
 
 /***
- * This test case reproduces one of the scenarios described in bitshares-core issue #342:
  *   when matching a limit order with another limit order, a small maker order will pay more than minimum required.
  */
 BOOST_AUTO_TEST_CASE( limit_limit_rounding_test2 )
@@ -337,7 +333,6 @@ BOOST_AUTO_TEST_CASE( limit_limit_rounding_test2 )
 }
 
 /***
- * This test case tests one of the scenarios described in bitshares-core issue #342 after hard fork:
  *   when matching a limit order with another limit order,
  *   a small maker order will only pay minimum required amount, and the rest will be returned.
  */
@@ -403,7 +398,7 @@ BOOST_AUTO_TEST_CASE( limit_limit_rounding_test2_after_hf_342 )
 }
 
 /***
- * Reproduces bitshares-core issue #132: something for nothing when matching a limit order with a call order.
+ * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  */
 BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1 )
@@ -476,7 +471,7 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1 )
 
 /***
  * Another test case
- * reproduces bitshares-core issue #132: something for nothing when matching a limit order with a call order.
+ * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  *
  * In this test case, the limit order is taker.
@@ -547,7 +542,7 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test2 )
 
 /***
  * Yet another test case
- * reproduces bitshares-core issue #132: something for nothing when matching a limit order with a call order.
+ * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  *
  * In this test case, the limit order is maker.
@@ -626,7 +621,7 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test3 )
 } FC_LOG_AND_RETHROW() }
 
 /***
- * Fixed bitshares-core issue #132: something for nothing when matching a limit order with a call order.
+ * something for nothing when matching a limit order with a call order.
  */
 BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1_after_hardfork )
 { try {
@@ -700,7 +695,7 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1_after_hardfork )
 
 /***
  * Another test case
- * for fixed bitshares-core issue #132: something for nothing when matching a limit order with a call order.
+ * something for nothing when matching a limit order with a call order.
  *
  * In this test case, the limit order is taker.
  */
@@ -772,7 +767,7 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test2_after_hardfork )
 
 /***
  * Yet another test case
- * for fixed bitshares-core issue #132: something for nothing when matching a limit order with a call order.
+ * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  *
  * In this test case, the limit order is maker.
@@ -852,7 +847,6 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test3_after_hardfork )
 } FC_LOG_AND_RETHROW() }
 
 /***
- * This test case reproduces one of the scenarios described in bitshares-core issue #342:
  *   when matching a big taker limit order with a small maker call order,
  *   rounding was in favor of the small call order.
  */
@@ -922,7 +916,6 @@ BOOST_AUTO_TEST_CASE( limit_call_rounding_test1 )
 } FC_LOG_AND_RETHROW() }
 
 /***
- * This test case tests one of the scenarios described in bitshares-core issue #342 after hard fork:
  *   when matching a big taker limit order with a small maker call order,
  *   rounding in favor of the big limit order.
  */
@@ -996,7 +989,6 @@ BOOST_AUTO_TEST_CASE( limit_call_rounding_test1_after_hf_342 )
 /***
  * Due to #338, when matching a smaller taker limit order with a big maker call order,
  *   the small order will be filled at its own price.
- * So unable or no need to reproduce one of the scenarios described in bitshares-core issue #342:
  *   when matching a small taker limit order with a big maker call order,
  *   the small limit order would be paying too much.
  * But we'll just write the test case for #338 here.
@@ -1068,7 +1060,6 @@ BOOST_AUTO_TEST_CASE( limit_call_rounding_test2 )
 
 
 /***
- * This test case tests one of the scenarios described in bitshares-core issue #342 after hard fork:
  *   when matching a small taker limit order with a big maker call order,
  *   the small limit order would be paying minimum required.
  */
@@ -1140,7 +1131,6 @@ BOOST_AUTO_TEST_CASE( limit_call_rounding_test2_after_hf_342 )
 } FC_LOG_AND_RETHROW() }
 
 /***
- * This test case reproduces one of the scenarios described in bitshares-core issue #342:
  *   when matching a small taker call order with a big maker limit order,
  *   rounding was in favor of the small call order.
  */
@@ -1219,7 +1209,6 @@ BOOST_AUTO_TEST_CASE( call_limit_rounding_test1 )
 } FC_LOG_AND_RETHROW() }
 
 /***
- * This test case tests one of the scenarios described in bitshares-core issue #342 after hard fork:
  *   when matching a small taker call order with a big maker limit order,
  *   rounding in favor of the big limit order.
  */
@@ -1299,7 +1288,6 @@ BOOST_AUTO_TEST_CASE( call_limit_rounding_test1_after_hf_342 )
 } FC_LOG_AND_RETHROW() }
 
 /***
- * This test case reproduces one of the scenarios described in bitshares-core issue #342:
  *   when matching a big taker call order with a small maker limit order,
  *   the small limit order would be paying too much.
  */
@@ -1401,7 +1389,6 @@ BOOST_AUTO_TEST_CASE( call_limit_rounding_test2 )
 } FC_LOG_AND_RETHROW() }
 
 /***
- * This test case tests one of the scenarios described in bitshares-core issue #342 after hard fork:
  *   when matching a big taker call order with a small maker limit order,
  *   the small limit order would be paying minimum required.
  */
