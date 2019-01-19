@@ -47,11 +47,6 @@ BOOST_AUTO_TEST_CASE(bsip36)
        * Test case reproduces, advance to hardfork and check if solved after it.
        */
 
-      /* References:
-       * BSIP 36: https://github.com/bitshares/bsips/blob/master/bsip-0036.md
-       * and the former: CORE Issue 518: https://github.com/bitshares/bitshares-core/issues/518
-       */
-
       // Create 12 accounts to be witnesses under our control
       ACTORS( (witness0)(witness1)(witness2)(witness3)(witness4)(witness5)
                    (witness6)(witness7)(witness8)(witness9)(witness10)(witness11) );
@@ -415,7 +410,7 @@ BOOST_AUTO_TEST_CASE(bsip36_update_feed_producers)
          trx.clear();
       }
 
-      // Bitshares will create entries in the field feed after feed producers are added
+      // Eidos will create entries in the field feed after feed producers are added
       auto bitasset_data = bit_usd_id(db).bitasset_data(db);
 
       BOOST_CHECK_EQUAL(bitasset_data.feeds.size(), 3);

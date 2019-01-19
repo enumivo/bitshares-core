@@ -141,7 +141,7 @@ BOOST_AUTO_TEST_CASE( call_order_object_test )
             if( print_log )
             {
                print_log = false;
-               wlog( "Impefect result >= 1 / ${i}", ("i",i) );
+               wlog( "Imperfect result >= 1 / ${i}", ("i",i) );
                wdump( (o)(match_price)(feed_price)(mcr)(result)(sell_less)(cover_less)(tmp_mcr_call_price)(tmp_tcr_call_price) );
             }
             break;
