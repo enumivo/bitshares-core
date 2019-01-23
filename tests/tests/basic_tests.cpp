@@ -583,9 +583,6 @@ BOOST_AUTO_TEST_CASE( merkle_root )
    BOOST_CHECK( block.calculate_merkle_root() == c(dO) );
 }
 
-/**
- * Reproduces https://github.com/bitshares/bitshares-core/issues/888 and tests fix for it.
- */
 BOOST_AUTO_TEST_CASE( bitasset_feed_expiration_test )
 {
    time_point_sec now = fc::time_point::now();

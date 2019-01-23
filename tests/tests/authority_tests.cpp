@@ -1421,7 +1421,6 @@ BOOST_FIXTURE_TEST_CASE( parent_owner_test, database_fixture )
       op.amount = asset(1);
       tx.operations.push_back( op );
 
-      // https://github.com/bitshares/bitshares-core/issues/584
       BOOST_CHECK( chk( tx, { alice_owner_pub }, { } ) );
       BOOST_CHECK( chk( tx, { alice_active_pub, alice_owner_pub }, { alice_active_pub } ) );
       sign( tx, alice_owner_key );
@@ -1439,8 +1438,6 @@ BOOST_FIXTURE_TEST_CASE( parent_owner_test, database_fixture )
    }
 }
 
-/// This test case reproduces https://github.com/bitshares/bitshares-core/issues/944
-///                       and https://github.com/bitshares/bitshares-core/issues/580
 BOOST_FIXTURE_TEST_CASE( missing_owner_auth_test, database_fixture )
 {
    try
@@ -1507,7 +1504,6 @@ BOOST_FIXTURE_TEST_CASE( missing_owner_auth_test, database_fixture )
       tx.verify_authority( db.get_chain_id(), get_active, get_owner );
 
       // signed with both alice's owner key and active key,
-      // it does not throw due to https://github.com/bitshares/bitshares-core/issues/580
       sign( tx, alice_active_key );
       tx.verify_authority( db.get_chain_id(), get_active, get_owner );
 

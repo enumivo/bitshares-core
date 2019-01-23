@@ -677,8 +677,7 @@ static bool update_bitasset_object_options(
       else
       {
          // for non-witness-feeding and non-committee-feeding assets, modify all feeds
-         // published by producers to nothing, since we can't simply remove them. For more information:
-         // https://github.com/bitshares/bitshares-core/pull/832#issuecomment-384112633
+         // published by producers to nothing, since we can't simply remove them.
          for( auto& current_feed : bdo.feeds )
          {
             current_feed.second.second.settlement_price = price();

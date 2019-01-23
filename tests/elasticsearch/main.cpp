@@ -48,7 +48,7 @@ BOOST_AUTO_TEST_CASE(elasticsearch_account_history) {
       graphene::utilities::ES es;
       es.curl = curl;
       es.elasticsearch_url = "http://localhost:9200/";
-      es.index_prefix = "bitshares-";
+      es.index_prefix = "eidos-";
       //es.auth = "elastic:changeme";
 
       // delete all first
@@ -113,7 +113,7 @@ BOOST_AUTO_TEST_CASE(elasticsearch_account_history) {
 
          // check the visitor data
          auto block_date = db.head_block_time();
-         std::string index_name = graphene::utilities::generateIndexName(block_date, "bitshares-");
+         std::string index_name = graphene::utilities::generateIndexName(block_date, "eidos-");
 
          es.endpoint = index_name + "/data/2.9.12"; // we know last op is a transfer of amount 300
          res = graphene::utilities::getEndPoint(es);
@@ -192,7 +192,7 @@ BOOST_AUTO_TEST_CASE(elasticsearch_suite) {
       graphene::utilities::ES es;
       es.curl = curl;
       es.elasticsearch_url = "http://localhost:9200/";
-      es.index_prefix = "bitshares-";
+      es.index_prefix = "eidos-";
       auto delete_account_history = graphene::utilities::deleteAll(es);
       fc::usleep(fc::milliseconds(1000));
       es.index_prefix = "objects-";

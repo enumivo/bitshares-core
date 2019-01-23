@@ -504,7 +504,6 @@ void database::update_expired_feeds()
       }
    } // for each asset whose feed is expired
 
-   // process assets affected by bitshares-core issue 453 before hard fork 615
    if( !after_hardfork_615 )
    {
       for( asset_id_type a : _issue_453_affected_assets )

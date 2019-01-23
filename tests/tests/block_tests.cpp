@@ -419,8 +419,6 @@ BOOST_AUTO_TEST_CASE( fork_blocks )
             GRAPHENE_CHECK_THROW(PUSH_BLOCK( db1, b ), fc::exception);
 
             // At this point, `fetch_block_by_number` will fetch block from fork_db,
-            //    so unable to reproduce the issue which is fixed in PR #938
-            //    https://github.com/bitshares/bitshares-core/pull/938
             fc::optional<signed_block> previous_block = db1.fetch_block_by_number(1);
             BOOST_CHECK ( previous_block.valid() );
             uint32_t db1_blocks = db1.head_block_num();
@@ -452,7 +450,6 @@ BOOST_AUTO_TEST_CASE( fork_blocks )
       }
 
       {
-         // PR #938 make sure db is in a good state https://github.com/bitshares/bitshares-core/pull/938
          BOOST_TEST_MESSAGE( "Checking whether all blocks on disk are good" );
          fc::optional<signed_block> previous_block = db1.fetch_block_by_number(1);
          BOOST_CHECK ( previous_block.valid() );
@@ -1566,7 +1563,7 @@ BOOST_FIXTURE_TEST_CASE( update_account_keys, database_fixture )
       std::cout << "update_account_keys:  this test will take a few minutes...\n";
 
       // Originally we had a loop here to go from use_address=0 to 1
-      // Live chain do not allow this so it had to be removed: https://github.com/bitshares/bitshares-core/issues/565
+      // Live chain do not allow this so it had to be removed
       vector< public_key_type > key_ids = numbered_key_id[ 0 ];
       for( int num_owner_keys=1; num_owner_keys<=2; num_owner_keys++ )
       {
@@ -1667,9 +1664,8 @@ BOOST_FIXTURE_TEST_CASE( update_account_keys, database_fixture )
    }
 }
 
-// The next test is commented out as it will fail in current bitshares implementaton
+// The next test is commented out as it will fail in current eidos implementaton
 // where "witnesses should never sign 2 consecutive blocks" is not enforced.
-// https://github.com/bitshares/bitshares-core/issues/565
 // Leaving it here to use it if we implement.later
 
 /**
@@ -1849,7 +1845,6 @@ BOOST_FIXTURE_TEST_CASE( temp_account_balance, database_fixture )
 /// * push blocks that are too large.
 /// If we add some logging in signed_transaction::get_signature_keys(), we can see if the code will extract public key(s)
 /// from signature(s) of same transactions multiple times.
-/// See https://github.com/bitshares/bitshares-core/pull/1251
 ///
 BOOST_FIXTURE_TEST_CASE( block_size_test, database_fixture )
 {

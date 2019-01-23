@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Bitshares Foundation, and contributors.
+ * Copyright (c) 2018 Eidos Foundation, and contributors.
  *
  * The MIT License
  *

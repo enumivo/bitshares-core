@@ -35,9 +35,6 @@ using namespace graphene::chain::test;
 
 BOOST_FIXTURE_TEST_SUITE(market_tests, database_fixture)
 
-/***
- * Reproduce bitshares-core issue #338 #343 #453 #606 #625 #649
- */
 BOOST_AUTO_TEST_CASE(issue_338_etc)
 { try {
    generate_blocks(HARDFORK_615_TIME); // get around Graphene issue #615 feed expiration bug
@@ -226,9 +223,6 @@ BOOST_AUTO_TEST_CASE(issue_338_etc)
 
 } FC_LOG_AND_RETHROW() }
 
-/***
- * Fixed bitshares-core issue #338 #343 #606 #625 #649
- */
 BOOST_AUTO_TEST_CASE(hardfork_core_338_test)
 { try {
    auto mi = db.get_global_properties().parameters.maintenance_interval;
@@ -401,9 +395,6 @@ BOOST_AUTO_TEST_CASE(hardfork_core_338_test)
 
 } FC_LOG_AND_RETHROW() }
 
-/***
- * Fixed bitshares-core issue #453: multiple limit order filling issue
- */
 BOOST_AUTO_TEST_CASE(hardfork_core_453_test)
 { try {
    auto mi = db.get_global_properties().parameters.maintenance_interval;
@@ -631,7 +622,7 @@ BOOST_AUTO_TEST_CASE(hardfork_core_625_big_limit_order_test)
 } FC_LOG_AND_RETHROW() }
 
 /***
- * Fixed bitshares-core issue #453 #606: multiple order matching without black swan, multiple bitassets
+ * multiple order matching without black swan, multiple bitassets
  */
 BOOST_AUTO_TEST_CASE(hard_fork_453_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork
@@ -840,7 +831,7 @@ BOOST_AUTO_TEST_CASE(hard_fork_453_cross_test)
 } FC_LOG_AND_RETHROW() }
 
 /***
- * Fixed bitshares-core issue #338 #453 #606: multiple order matching with black swan
+ * multiple order matching with black swan
  */
 BOOST_AUTO_TEST_CASE(hard_fork_338_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork
@@ -960,7 +951,7 @@ BOOST_AUTO_TEST_CASE(hard_fork_338_cross_test)
 } FC_LOG_AND_RETHROW() }
 
 /***
- * Fixed bitshares-core issue #649: Black swan detection fetch call order by call_price but not collateral ratio
+ * Black swan detection fetch call order by call_price but not collateral ratio
  */
 BOOST_AUTO_TEST_CASE(hard_fork_649_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork
@@ -1074,7 +1065,7 @@ BOOST_AUTO_TEST_CASE(hard_fork_649_cross_test)
 } FC_LOG_AND_RETHROW() }
 
 /***
- * Fixed bitshares-core issue #343: change sorting of call orders when matching against limit order
+ * change sorting of call orders when matching against limit order
  */
 BOOST_AUTO_TEST_CASE(hard_fork_343_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork

@@ -182,7 +182,7 @@ void database::pay_workers( share_type& budget )
 
       // Note: if there is a good chance that passed_time_count == day_count,
       //       for better performance, can avoid the 128 bit calculation by adding a check.
-      //       Since it's not the case on BitShares mainnet, we're not using a check here.
+      //       Since it's not the case on Eidos mainnet, we're not using a check here.
       fc::uint128 pay(requested_pay.value);
       pay *= passed_time_count;
       pay /= day_count;
@@ -931,12 +931,10 @@ void database::process_bitassets()
  * Prior to hardfork 868, switching a bitasset's shorting asset would not reset its
  * feeds. This method will run at the hardfork time, and erase (or nullify) feeds
  * that have incorrect backing assets.
- * https://github.com/bitshares/bitshares-core/issues/868
  *
  * Prior to hardfork 890, changing a bitasset's feed expiration time would not
  * trigger a median feed update. This method will run at the hardfork time, and
  * correct all median feed data.
- * https://github.com/bitshares/bitshares-core/issues/890
  *
  * @param db the database
  * @param skip_check_call_orders true if check_call_orders() should not be called
@@ -956,8 +954,7 @@ void process_hf_868_890( database& db, bool skip_check_call_orders )
       const auto& current_asset = *asset_itr;
       // Incorrect witness & committee feeds can simply be removed.
       // For non-witness-fed and non-committee-fed assets, set incorrect
-      // feeds to price(), since we can't simply remove them. For more information:
-      // https://github.com/bitshares/bitshares-core/pull/832#issuecomment-384112633
+      // feeds to price(), since we can't simply remove them.
       bool is_witness_or_committee_fed = false;
       if ( current_asset.options.flags & ( witness_fed_asset | committee_fed_asset ) )
          is_witness_or_committee_fed = true;
@@ -1004,7 +1001,7 @@ void process_hf_868_890( database& db, bool skip_check_call_orders )
                ("asset_sym", current_asset.symbol)("asset_id", current_asset.id) );
       }
 
-      // always update the median feed due to https://github.com/bitshares/bitshares-core/issues/890
+      // always update the median feed
       db.modify( bitasset_data, [&head_time]( asset_bitasset_data_object &obj ) {
          obj.update_median_feeds( head_time );
       });
@@ -1017,7 +1014,7 @@ void process_hf_868_890( database& db, bool skip_check_call_orders )
                ("asset_sym", current_asset.symbol)("asset_id", current_asset.id) );
       }
 
-      // Note: due to bitshares-core issue #935, the check below (using median_changed) is incorrect.
+      // the check below (using median_changed) is incorrect.
       //       However, `skip_check_call_orders` will likely be true in both testnet and mainnet,
       //         so effectively the incorrect code won't make a difference.
       //       Additionally, we have code to update all call orders again during hardfork core-935
@@ -1041,7 +1038,6 @@ void process_hf_868_890( database& db, bool skip_check_call_orders )
  * Prior to hardfork 935, `check_call_orders` may be unintendedly skipped when
  * median price feed has changed. This method will run at the hardfork time, and
  * call `check_call_orders` for all markets.
- * https://github.com/bitshares/bitshares-core/issues/935
  *
  * @param db the database
  */

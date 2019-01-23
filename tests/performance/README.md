@@ -2,11 +2,7 @@ HOW TO
 ======
 
 This small test suite serves to demonstrate two key points about the performance
-of our current implementation. The subject was talked about in detail at
-BitFest Amsterdam, Sep 22, 2018.
-
-The original description of the 100,000 transactions per second test can be
-found at https://bitshares.org/blog/2015/06/08/measuring-performance/ .
+of our current implementation.
 
 Prepare
 -------

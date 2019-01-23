@@ -55,7 +55,6 @@ BOOST_AUTO_TEST_CASE( sigcheck_benchmark )
    wlog( "Benchmark: verify ${sps} signatures/s", ("sps",(cycles*1000000)/elapsed.count()) );
 }
 
-// See https://bitshares.org/blog/2015/06/08/measuring-performance/
 // (note this is not the original test mentioned in the above post, but was
 //  recreated later according to the description)
 BOOST_AUTO_TEST_CASE( one_hundred_k_benchmark )
