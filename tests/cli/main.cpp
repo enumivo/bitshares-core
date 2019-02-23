@@ -360,7 +360,7 @@ BOOST_FIXTURE_TEST_CASE( create_new_account, cli_fixture )
       con.wallet_api_ptr->save_wallet_file(con.wallet_filename);
 
       // attempt to give jmjatlanta some bitsahres
-      BOOST_TEST_MESSAGE("Transferring Eidos from Nathan to jmjatlanta");
+      BOOST_TEST_MESSAGE("Transferring EON from Nathan to jmjatlanta");
       signed_transaction transfer_tx = con.wallet_api_ptr->transfer(
          "nathan", "jmjatlanta", "10000", "1.3.0", "Here are some CORE token for your new account", true
       );
@@ -533,8 +533,7 @@ BOOST_FIXTURE_TEST_CASE( account_history_pagination, cli_fixture )
    {
       INVOKE(create_new_account);
 
-      // attempt to give jmjatlanta some Eidos
-      BOOST_TEST_MESSAGE("Transferring Eidos from Nathan to jmjatlanta");
+      BOOST_TEST_MESSAGE("Transferring EON from Nathan to jmjatlanta");
       for(int i = 1; i <= 199; i++)
       {
          signed_transaction transfer_tx = con.wallet_api_ptr->transfer("nathan", "jmjatlanta", std::to_string(i),

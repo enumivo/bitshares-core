@@ -164,10 +164,6 @@ void application_impl::reset_p2p_node(const fc::path& data_dir)
    else
    {
       vector<string> seeds = {
-         /*
-         "seed01.liondani.com:1776",          // liondani     (GERMANY)
-         "104.236.144.84:1777",               // puppies      (USA)
-         */
       };
       for( const string& endpoint_string : seeds )
       {

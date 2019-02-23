@@ -621,9 +621,6 @@ BOOST_AUTO_TEST_CASE(hardfork_core_625_big_limit_order_test)
 
 } FC_LOG_AND_RETHROW() }
 
-/***
- * multiple order matching without black swan, multiple bitassets
- */
 BOOST_AUTO_TEST_CASE(hard_fork_453_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork
    auto mi = db.get_global_properties().parameters.maintenance_interval;
@@ -830,9 +827,6 @@ BOOST_AUTO_TEST_CASE(hard_fork_453_cross_test)
 
 } FC_LOG_AND_RETHROW() }
 
-/***
- * multiple order matching with black swan
- */
 BOOST_AUTO_TEST_CASE(hard_fork_338_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork
    auto mi = db.get_global_properties().parameters.maintenance_interval;
@@ -950,9 +944,6 @@ BOOST_AUTO_TEST_CASE(hard_fork_338_cross_test)
 
 } FC_LOG_AND_RETHROW() }
 
-/***
- * Black swan detection fetch call order by call_price but not collateral ratio
- */
 BOOST_AUTO_TEST_CASE(hard_fork_649_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork
    auto mi = db.get_global_properties().parameters.maintenance_interval;
@@ -1064,9 +1055,6 @@ BOOST_AUTO_TEST_CASE(hard_fork_649_cross_test)
 
 } FC_LOG_AND_RETHROW() }
 
-/***
- * change sorting of call orders when matching against limit order
- */
 BOOST_AUTO_TEST_CASE(hard_fork_343_cross_test)
 { try { // create orders before hard fork, which will be matched on hard fork
    auto mi = db.get_global_properties().parameters.maintenance_interval;

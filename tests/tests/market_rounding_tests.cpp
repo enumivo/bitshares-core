@@ -90,9 +90,6 @@ BOOST_AUTO_TEST_CASE( trade_amount_equals_zero )
    }
 }
 
-/**
- *  The something-for-nothing bug should be fixed 
- */
 BOOST_AUTO_TEST_CASE( trade_amount_equals_zero_after_hf_184 )
 {
    try {
@@ -398,7 +395,6 @@ BOOST_AUTO_TEST_CASE( limit_limit_rounding_test2_after_hf_342 )
 }
 
 /***
- * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  */
 BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1 )
@@ -471,7 +467,6 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1 )
 
 /***
  * Another test case
- * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  *
  * In this test case, the limit order is taker.
@@ -542,7 +537,6 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test2 )
 
 /***
  * Yet another test case
- * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  *
  * In this test case, the limit order is maker.
@@ -620,9 +614,6 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test3 )
 
 } FC_LOG_AND_RETHROW() }
 
-/***
- * something for nothing when matching a limit order with a call order.
- */
 BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1_after_hardfork )
 { try {
    auto mi = db.get_global_properties().parameters.maintenance_interval;
@@ -695,7 +686,6 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test1_after_hardfork )
 
 /***
  * Another test case
- * something for nothing when matching a limit order with a call order.
  *
  * In this test case, the limit order is taker.
  */
@@ -767,7 +757,6 @@ BOOST_AUTO_TEST_CASE( issue_132_limit_and_call_test2_after_hardfork )
 
 /***
  * Yet another test case
- * something for nothing when matching a limit order with a call order.
  * Also detects the cull_small issue in check_call_orders.
  *
  * In this test case, the limit order is maker.
